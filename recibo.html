@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Recibo</title>
+<link rel="stylesheet" href="styles/recibo.css">
+</head>
+<body>
+
+<div class="recibo">
+  <div class="cabecera">
+    <div class="icono">✓</div>
+    <h1>Pago confirmado</h1>
+    <p class="tx-id" id="tx"></p>
+  </div>
+
+  <table>
+    <tr><td class="label">Proyecto</td><td class="valor" id="proyecto"></td></tr>
+    <tr><td class="label">Correo</td><td class="valor" id="email"></td></tr>
+    <tr><td class="label">Plan</td><td class="valor" id="plan"></td></tr>
+    <tr><td class="label">Región</td><td class="valor" id="region"></td></tr>
+  </table>
+
+  <div class="separador">Servicios adicionales</div>
+  <table id="servicios"></table>
+
+  <div class="separador"></div>
+  <table>
+    <tr class="fila-total">
+      <td class="total-label">Total mensual</td>
+      <td class="total-monto" id="total"></td>
+    </tr>
+  </table>
+
+  <button class="btn-imprimir" onclick="window.print()">
+    Imprimir recibo
+  </button>
+
+  <p class="pie" id="confirmacion"></p>
+</div>
+
+<script>
+const data = window.reciboData;
+const d = data.datos;
+
+document.getElementById("tx").textContent = "ID: " + data.id;
+document.getElementById("proyecto").textContent = d.proyecto;
+document.getElementById("email").textContent = d.email;
+document.getElementById("plan").textContent = d.plan;
+document.getElementById("region").textContent = d.region;
+document.getElementById("total").textContent = "$" + d.total + "/mes";
+document.getElementById("confirmacion").textContent =
+  "Confirmación enviada a " + d.email;
+
+const servicios = document.getElementById("servicios");
+
+if (d.servicios.length) {
+  servicios.innerHTML = d.servicios
+    .map(s => `
+      <tr>
+        <td class="item">${s}</td>
+        <td class="monto">incluido</td>
+      </tr>
+    `)
+    .join("");
+} else {
+  servicios.innerHTML =
+    `<tr><td colspan="2" class="vacio">Sin servicios adicionales</td></tr>`;
+}
+</script>
+
+</body>
+</html>

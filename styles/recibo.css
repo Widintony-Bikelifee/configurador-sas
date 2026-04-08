@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: #f5f5f3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+.recibo {
+  background: #fff;
+  border: 1px solid #e0dfd8;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+  font-size: 14px;
+}
+.cabecera {
+  background: #eaf3de;
+  padding: 1.5rem;
+  text-align: center;
+}
+.icono {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #3b6d11;
+  color: #fff;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+}
+.cabecera h1 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #27500a;
+  margin-bottom: 4px;
+}
+.cabecera .tx-id {
+  font-size: 12px;
+  color: #3b6d11;
+  font-family: monospace;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+td {
+  padding: 9px 1.25rem;
+  vertical-align: top;
+}
+.label {
+  color: #888780;
+  width: 42%;
+}
+.valor {
+  color: #2c2c2a;
+  font-weight: 500;
+  text-align: right;
+}
+.separador {
+  border-top: 1px dashed #d3d1c7;
+  margin: 0 1.25rem;
+  padding: 5px 0 0;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: #b4b2a9;
+  text-transform: uppercase;
+}
+.item {
+  color: #2c2c2a;
+}
+.monto {
+  text-align: right;
+  color: #888780;
+  font-size: 12px;
+}
+.vacio {
+  color: #b4b2a9;
+  font-size: 13px;
+}
+.fila-total td {
+  background: #f1efe8;
+  padding: 12px 1.25rem;
+}
+.total-label {
+  font-weight: 500;
+  color: #2c2c2a;
+}
+.total-monto {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: right;
+  color: #2c2c2a;
+}
+.pie {
+  text-align: center;
+  font-size: 12px;
+  color: #888780;
+  padding: 12px 1.25rem;
+  border-top: 1px solid #e0dfd8;
+}
+.btn-imprimir {
+  display: block;
+  width: calc(100% - 2.5rem);
+  margin: 1rem 1.25rem;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #d3d1c7;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  color: #444441;
+}
+.btn-imprimir:hover {
+  background: #f1efe8;
+}
+@media print {
+  body {
+    background: #fff;
+    padding: 0;
+  }
+  .btn-imprimir {
+    display: none;
+  }
+}

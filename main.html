@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configurador de Servicios Cloud SaaS</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--
+    INICIO
+    -->
+    <div class="cabecera">
+      <h1>Configurador Cloud SaaS</h1>
+      <p>
+        Realice su cotización perfecta para servicios en la nube con nosotros
+      </p>
+
+      <!-- 
+      Indicador de progreso
+       -->
+      <div class="indicador-pasos" id="indicadorPasos">
+        <div class="paso-item activo" id="indicador-1">
+          <div class="paso-circulo">1</div>
+          <span class="paso-label">Registro</span>
+        </div>
+        <!--Linea de pasos-->
+        <div class="paso-linea" id="linea-1-2"></div>
+
+        <div class="paso-item" id="indicador-2">
+          <div class="paso-circulo">2</div>
+          <span class="paso-label">Plan</span>
+        </div>
+
+        <!--Linea de pasos-->
+        <div class="paso-linea" id="linea-2-3"></div>
+
+        <div class="paso-item" id="indicador-3">
+          <div class="paso-circulo">3</div>
+          <span class="paso-label">Recursos</span>
+        </div>
+        <!--Linea de pasos-->
+        <div class="paso-linea" id="linea-3-4"></div>
+
+        <div class="paso-item" id="indicador-4">
+          <div class="paso-circulo">4</div>
+          <span class="paso-label">Resumen</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!--
+     FORMULARIO PRINCIPAL
+   -->
+    <div class="app">
+       <!-- Validar con js y no html --> 
+      <form id="formulario" novalidate> 
+
+        <!--Registro del proyecto -->
+
+        <div class="seccion" id="paso-1">
+          <div class="seccion-titulo">
+            <h2>Registro del proyecto</h2>
+            <span class="paso-badge">Paso 1 de 4</span>
+          </div>
+
+          <div class="fila-doble">
+            <div class="campo">
+              <label class="etiqueta" for="nombreProyecto"
+                >Nombre del proyecto *</label
+              >
+              <input
+                type="text"
+                id="nombreProyecto"
+                placeholder="Ej: COORDINADORA S.A.S"
+              />
+              <p class="msg-error" id="errNombre">Campo Obligatorio</p>
+            </div>
+
+            <div class="campo">
+              <label class="etiqueta" for="emailCliente"
+                >Correo electrónico *</label
+              >
+              <input
+                type="email"
+                id="emailCliente"
+                placeholder="correo@empresa.com"
+              />
+              <p class="msg-error" id="errEmail">
+                Correo electrónico requerido
+              </p>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label class="etiqueta" for="descripcion">
+              Descripción del proyecto 
+            </label>
+            <textarea
+              id="descripcion"
+              placeholder="Describa brevemente su proyecto, mínimo 20 caracteres"
+            ></textarea>
+            <p class="msg-error" id="errDescripcion">
+              Mínimo 20 caracteres requeridos
+            </p>
+          </div>
+
+          <!-- Navegación paso 1 -->
+          <div class="nav-pasos nav-derecha">
+            <button type="button" class="btn-siguiente" id="btnSiguiente1">
+              Continuar
+            </button>
+          </div>
+        </div>
+
+        <!--  Plan de cómputo-->
+        <div class="seccion oculto" id="paso-2">
+          <div class="seccion-titulo">
+            <h2>Plan de cómputo</h2>
+            <span class="paso-badge">Paso 2 de 4</span>
+          </div>
+
+          <div class="contenedor-planes" id="contenedorPlanes">
+            <label class="tarjeta-plan" id="card-basic">
+              <input type="radio" name="plan" value="basic" />
+              <div class="plan-nombre">Basic</div>
+              <div class="plan-precio">$50</div>
+              <div class="plan-desc">Mes <br>2 vCPU <br>4 GB RAM</div>
+            </label>
+
+            <label class="tarjeta-plan activo" id="card-pro">
+              <span class="popular-badge">★ POPULAR</span>
+              <input type="radio" name="plan" value="pro" checked />
+              <div class="plan-nombre">Professional</div>
+              <div class="plan-precio">$100</div>
+              <div class="plan-desc">Mes <br>4 vCPU <br>16 GB RAM</div>
+            </label>
+
+            <label class="tarjeta-plan" id="card-enterprise">
+              <input type="radio" name="plan" value="enterprise" />
+              <div class="plan-nombre">Enterprise</div>
+              <div class="plan-precio">$250</div>
+              <div class="plan-desc">Mes <br>16 vCPU <br>64 GB RAM</div>
+            </label>
+          </div>
+
+          <!-- Navegación paso 2 -->
+          <div class="nav-pasos nav-ambos">
+            <button type="button" class="btn-anterior" id="btnAnterior2">
+              Regresar
+            </button>
+            <button type="button" class="btn-siguiente" id="btnSiguiente2">
+              Continuar
+            </button>
+          </div>
+        </div>
+
+        <!--  PASO 3: Recursos y servicios adicionales-->
+        <div class="seccion oculto" id="paso-3">
+          <div class="seccion-titulo">
+            <h2>Recursos y servicios adicionales</h2>
+            <span class="paso-badge">Paso 3 de 4</span>
+          </div>
+
+          <div class="campo">
+            <label class="etiqueta" for="region">Región del servidor</label>
+            <select id="region">
+              <option value="usa">
+                EE.UU. (Virginia) — sin costo adicional
+              </option>
+              <option value="europa">Europa (Frankfurt) — +$10/mes</option>
+              <option value="asia">Asia (Singapur) — +$15/mes</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label class="etiqueta">Servicios adicionales</label>
+            <div class="lista-servicios">
+              <label class="servicio-item">
+                <input type="checkbox" id="backup" data-precio="20" />
+                <div class="servicio-info">
+                  <div class="servicio-nombre">Backup automático</div>
+                  <div class="servicio-desc">
+                    Copias de seguridad diarias en almacenamiento redundante
+                  </div>
+                </div>
+                <span class="servicio-precio">+$20</span>
+              </label>
+
+              <label class="servicio-item">
+                <input type="checkbox" id="monitoreo" data-precio="15" />
+                <div class="servicio-info">
+                  <div class="servicio-nombre">Monitoreo 24/7</div>
+                  <div class="servicio-desc">
+                    Alertas en tiempo real y métricas de rendimiento
+                  </div>
+                </div>
+                <span class="servicio-precio">+$15</span>
+              </label>
+
+              <label class="servicio-item">
+                <input type="checkbox" id="ssl" data-precio="10" />
+                <div class="servicio-info">
+                  <div class="servicio-nombre">Certificado SSL</div>
+                  <div class="servicio-desc">
+                    Cifrado HTTPS y seguridad en tránsito
+                  </div>
+                </div>
+                <span class="servicio-precio">+$10</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Navegación paso 3 -->
+          <div class="nav-pasos nav-ambos">
+            <button type="button" class="btn-anterior" id="btnAnterior3">
+              Regresar
+            </button>
+            <button type="button" class="btn-siguiente" id="btnSiguiente3">
+              Continuar
+            </button>
+          </div>
+        </div>
+
+        <!--PASO 4: Resumen de cotización + envío-->
+        <div class="seccion oculto" id="paso-4">
+          <div class="seccion-titulo">
+            <h2>Resumen de pago</h2>
+            <span class="paso-badge">Paso 4 de 4</span>
+          </div>
+
+          <!-- Tarjeta destacada -->
+          <div class="resumen-card">
+            <div class="resumen-fila">
+              <span class="resumen-label">Proyecto</span>
+              <span class="resumen-valor" id="rProyecto">—</span>
+            </div>
+            <div class="resumen-fila">
+              <span class="resumen-label">Correo</span>
+              <span class="resumen-valor" id="rEmail">—</span>
+            </div>
+            <div class="resumen-separador"></div>
+            <div class="resumen-fila">
+              <span class="resumen-label">Plan seleccionado</span>
+              <span class="resumen-valor" id="rPlan">Professional</span>
+            </div>
+            <div class="resumen-fila">
+              <span class="resumen-label">Región</span>
+              <span class="resumen-valor" id="rRegion">EE.UU.</span>
+            </div>
+            <div class="resumen-fila">
+              <span class="resumen-label">Servicios adicionales</span>
+              <span class="resumen-valor" id="rServicios">Ninguno</span>
+            </div>
+            <div class="resumen-separador"></div>
+            <div class="resumen-fila resumen-total">
+              <span class="resumen-label">Total mensual</span>
+              <span class="resumen-valor" id="rTotal">$100/mes</span>
+            </div>
+          </div>
+
+          <!-- Spinner -->
+          <div class="spinner" id="spinner">
+            <div class="spinner-circulo"></div>
+            Enviando configuración al servidor...
+          </div>
+
+          <!-- Resultado final -->
+          <div class="resultado" id="resultadoFinal"></div>
+
+          <!-- Navegación paso 4 -->
+          <div class="nav-pasos nav-ambos">
+            <button type="button" class="btn-anterior" id="btnAnterior4">
+                Regresar
+            </button>
+            <button type="submit" class="btn-finalizar" id="btnFinalizar">
+              Finalizar compra
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /.app -->
+
+    <script src="./js/script.js" defer></script>
+  </body>
+</html>
