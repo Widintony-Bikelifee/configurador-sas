@@ -343,7 +343,7 @@ document.getElementById("formulario").addEventListener("submit", (e) => {
         btnAnterior.disabled = false;
 
         const ventana = window.open(
-          "./recibo.html",
+          "./recibo/recibo.html",
           "_blank",
           "width=520,height=680",
         );
